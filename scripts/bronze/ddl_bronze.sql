@@ -9,6 +9,11 @@ Script Purpose:
 ===============================================================================
 */
 
+
+--------------------------------------------------------------------------------- 
+------------------------------ CRM SYSTEM --------------------------------------- 
+--------------------------------------------------------------------------------- 
+
 IF OBJECT_ID('bronze.crm_cust_info', 'U') IS NOT NULL
     DROP TABLE bronze.crm_cust_info;
 
@@ -26,31 +31,34 @@ IF OBJECT_ID('bronze.crm_prd_info', 'U') IS NOT NULL
     DROP TABLE bronze.crm_prd_info;
 
 CREATE TABLE bronze.crm_prd_info (
-    crm_prd_id         INT,
-    crm_prd_key        NVARCHAR(50),
-    crm_prd_nm         NVARCHAR(50),
-    crm_prd_cost       INT,
-    crm_prd_line       NVARCHAR(50),
-    crm_prd_start_dt   DATETIME,
-    crm_prd_end_dt     DATETIME
+    prd_id         INT,
+    prd_key        NVARCHAR(50),
+    prd_nm         NVARCHAR(50),
+    prd_cost       INT,
+    prd_line       NVARCHAR(50),
+    prd_start_dt   DATETIME,
+    prd_end_dt     DATETIME
 );
 
 IF OBJECT_ID('bronze.crm_sales_details', 'U') IS NOT NULL
     DROP TABLE bronze.crm_sales_details;
 
 CREATE TABLE bronze.crm_sales_details (
-    crm_sls_cust_id     INT,
-    crm_sls_ord_num     NVARCHAR(50),
-    crm_sls_prd_key     NVARCHAR(50),
-    crm_sls_order_dt    INT,
-    crm_sls_ship_dt     INT,
-    crm_sls_due_dt      INT,
-    crm_sls_sales       INT,
-    crm_sls_quantity    INT,
-    crm_sls_price       INT,
+    sls_ord_num     NVARCHAR(50),
+    sls_prd_key     NVARCHAR(50),
+    sls_cust_id     INT,
+    sls_order_dt    INT,
+    sls_ship_dt     INT,
+    sls_due_dt      INT,
+    sls_sales       INT,
+    sls_quantity    INT,
+    sls_price       INT
 );
 
--- ---------------------------------
+
+--------------------------------------------------------------------------------- 
+------------------------------ ERP SYSTEM --------------------------------------- 
+--------------------------------------------------------------------------------- 
 
 IF OBJECT_ID('bronze.erp_loc_a101', 'U') IS NOT NULL
     DROP TABLE bronze.erp_loc_a101;
@@ -65,8 +73,8 @@ IF OBJECT_ID('bronze.erp_cust_az12', 'U') IS NOT NULL
 
 CREATE TABLE bronze.erp_cust_az12 (
     cid       NVARCHAR(50),
-    gen       NVARCHAR(50),
     bdate     DATE,
+    gen       NVARCHAR(50),
 );
 
 IF OBJECT_ID('bronze.erp_px_cat_g1v2', 'U') IS NOT NULL
