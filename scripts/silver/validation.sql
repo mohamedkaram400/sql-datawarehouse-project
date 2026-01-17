@@ -102,3 +102,36 @@ WHERE sls_order_dt > sls_ship_dt OR sls_order_dt > sls_due_dt
     OR sls_price <= 0
 
 SELECT * FROM silver.crm_sales_details
+
+
+
+-- ==================================== ERP CUST AZ12 ==================================== --
+
+
+SELECT DISTINCT gndr 
+FROM silver.erp_loc_a101
+
+SELECT * FROM silver.erp_cust_az12
+
+-- ==================================== ERP LOC A101 ==================================== --
+
+SELECT cid
+FROM bronze.erp_loc_a101
+WHERE cid NOT IN (SELECT cst_key FROM bronze.crm_cust_info)
+
+SELECT DISTINCT cntry 
+FROM silver.erp_loc_a101
+
+SELECT * FROM silver.erp_loc_a101
+
+-- ==================================== ERP PX CAT G1V1 ==================================== --
+
+SELECT *
+FROM silver.erp_px_cat_g1v2
+WHERE cat != TRIM(cat) OR subcat != TRIM(subcat) OR maintenance != TRIM(maintenance)
+
+SELECT DISTINCT cat FROM silver.erp_px_cat_g1v2
+
+SELECT DISTINCT subcat FROM silver.erp_px_cat_g1v2
+
+SELECT DISTINCT maintenance FROM silver.erp_px_cat_g1v2
