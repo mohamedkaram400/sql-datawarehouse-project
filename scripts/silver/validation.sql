@@ -19,7 +19,7 @@ FROM silver.crm_cust_info
 where cst_lastname != TRIM(cst_lastname);
 
 -- Data Standardization & Consistency
-SELECT DISTINCT cst_material_status
+SELECT DISTINCT cst_marital_status
 FROM silver.crm_cust_info
 
 -- Make sure there is only two gender (Male, Female)
